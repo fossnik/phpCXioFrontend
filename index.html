@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Data Representation</title>
+		<script language="JavaScript" type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+		<h1>Order Book</h1>
+
+        <div class="alert">
+            <span id="status"></span>
+        </div>
+
+		<select id="market">
+			<option value="18">Litecoin</option>
+			<option value="21">Dogecoin</option>
+			<option value="87">Ethereum</option>
+			<option value="88">Ethereum Classic</option>
+			<option value="281">Dash</option>
+		</select>
+
+		<button type="button" class="button" id="pull">Pull Orderbook<br>(PHP)</button>
+		<button type="button" class="button" id="print">Print Orderbook<br>(JavaScript)</button>
+
+        <p>
+		<table class="flex-container">
+			<tbody id="JS-fill" ></tbody>
+		</table>
+
+		<footer>
+			<script src="js/script.js"></script>
+		</footer>
+	</body>
+
+</html>
