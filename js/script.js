@@ -225,3 +225,50 @@ $('#getcurrencies').click(function () {
 		$('#maintable').html(html + "</tbody></table>");
 	}
 });
+
+$('#getcurrency').click(function () {
+	let ticker = $('option:selected').data().name;
+
+	$.ajax({
+		type: 'POST',
+		url: 'php/pullJson.php',
+		data: {
+			endpoint: 'getcurrency' + '?ticker_code=' + ticker
+		},
+		success: function (jsonString) {
+			let getcurrencies = JSON.parse(jsonString);
+			$('#status').html("pullJson.php Successfully Queried API<br>" +
+				"request: " + getcurrencies.request + "  [" + ticker + "]");
+			printGetCurrencies(getcurrencies);
+		}
+	});
+
+	function printGetCurrencies(json) {
+		// print table headers
+		let html =
+			"<table>" +
+				"<thead>" +
+					"<tr>" +
+						"<th class='flex-item'>CurrencyID</th>" +
+						"<th class='flex-item'>Name</th>" +
+						"<th class='flex-item'>TickerCode</th>" +
+						"<th class='flex-item'>WalletStatus</th>" +
+						"<th class='flex-item'>Type</th>" +
+					"</tr>" +
+				"</thead>" +
+				"<tbody>";
+
+		// fill table
+		html +=
+			"<tr>" +
+				"<td class='flex-item'>" + json.result.CurrencyID +
+				"<td class='flex-item'>" + json.result.Name +
+				"<td class='flex-item'>" + json.result.TickerCode +
+				"<td class='flex-item'>" + json.result.WalletStatus +
+				"<td class='flex-item'>" + json.result.Type +
+			"</tr>";
+
+		// apply generated table string to DOM
+		$('#maintable').html(html + "</tbody></table>");
+	}
+});

@@ -18,8 +18,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="420">
+              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -27,8 +27,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="843">
-              <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
+            <state relative-caret-position="783">
+              <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
             </state>
           </provider>
         </entry>
@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/php/pullJson.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+              <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -77,8 +77,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/php/pullJson.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/php/pullJson.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/script.js" />
       </list>
@@ -215,7 +215,7 @@
       <workItem from="1520788803389" duration="19060000" />
       <workItem from="1520884510528" duration="258000" />
       <workItem from="1520905219580" duration="6000000" />
-      <workItem from="1520961611357" duration="7175000" />
+      <workItem from="1520961611357" duration="10648000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented GetMarkets Endpoint Query">
       <created>1520908164668</created>
@@ -273,11 +273,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520968392111</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented getCurrencies Endpoint and Table">
+      <created>1520969465403</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1520969465403</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33339000" />
+    <option name="totallyTimeSpent" value="36812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1052" extended-state="0" />
@@ -354,7 +361,8 @@
     <MESSAGE value="Implemented GetMarketSummaries Table" />
     <MESSAGE value="Corrected Error causing &lt;/table&gt; terminator tag to appear before row data." />
     <MESSAGE value="Implemented Style Improvements to Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Style Improvements to Table" />
+    <MESSAGE value="Implemented getCurrencies Endpoint and Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented getCurrencies Endpoint and Table" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -457,13 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/pullJson.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -473,15 +474,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="420">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/pullJson.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="843">
-          <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
+        <state relative-caret-position="783">
+          <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
         </state>
       </provider>
     </entry>
