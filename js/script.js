@@ -7,7 +7,7 @@ $('#orderbook').click(function() {
 		type: 'POST',
 		url: 'php/pullJson.php',
 		data: {
-			market: market
+			endpoint: "getorderbook?market_id=" + market
 		},
 		success: function (JsonString) {
 			let orderbook = JSON.parse(JsonString);
