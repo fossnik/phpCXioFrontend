@@ -1,21 +1,21 @@
 body {
 	text-align: center;
 }
-th {
+table, thead, tbody, th, tr, td {
+	border: 1px solid black;
+}
+thead {
 	font-weight: bold;
+	background-color: seashell;
+}
+tbody {
+	font-size: medium;
 }
 .buy {
 	background-color: lightgreen;
 }
 .sell {
 	background-color: indianred;
-}
-tr {
-	margin: auto;
-}
-td {
-	font-size: 14px;
-	background-color: lightblue;
 }
 .flex-container {
 	display: flex;
