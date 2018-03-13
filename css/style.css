@@ -4,12 +4,17 @@ body {
 table, thead, tbody, th, tr, td {
 	border: 1px solid black;
 }
+table {
+	background-color: cadetblue;
+}
 thead {
 	font-weight: bold;
-	background-color: seashell;
+	background-color: sandybrown;
 }
 tbody {
-	font-size: medium;
+	font-size: small;
+	font-family: monospace;
+	background-color: antiquewhite;
 }
 .buy {
 	background-color: lightgreen;
