@@ -5,8 +5,9 @@
 		$url = 'https://www.coinexchange.io/api/v1/getorderbook?market_id=' . $MarketID;
 		echo file_get_contents($url);
 	} else
-		if ($_POST['endpoint'] === 'getmarkets') {
-			echo file_get_contents('https://www.coinexchange.io/api/v1/getmarkets');
+		if (isset($_POST['endpoint'])) {
+			$endpoint = $_POST['endpoint'];
+			echo file_get_contents('https://www.coinexchange.io/api/v1/' . $endpoint);
 		}
 
 //	$url = '../json/.Sample-ltc-orderbook.json';

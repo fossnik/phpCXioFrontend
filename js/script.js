@@ -1,7 +1,5 @@
 // pull JSON from API on button click
 
-let orderbook = null;
-
 $('#orderbook').click(function() {
 	let market = document.getElementById("market").value;
 
@@ -12,7 +10,7 @@ $('#orderbook').click(function() {
 			market: market
 		},
 		success: function (JsonString) {
-			orderbook = JSON.parse(JsonString);
+			let orderbook = JSON.parse(JsonString);
 			printOrderBook(orderbook);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + orderbook.request +
@@ -66,7 +64,7 @@ $('#getmarkets').click(function() {
 			endpoint: 'getmarkets'
 		},
 		success: function (jsonString) {
-			getmarkets = JSON.parse(jsonString);
+			let getmarkets = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getmarkets.request);
 			printGetMarkets(getmarkets);
@@ -109,3 +107,25 @@ $('#getmarkets').click(function() {
 });
 
 
+$('#getmarketsummaries').click(function () {
+
+	$.ajax({
+		type: 'POST',
+		url: 'php/pullJson.php',
+		data: {
+			endpoint: 'getmarketsummaries'
+		},
+		success: function (jsonString) {
+			$('#maintable').text(jsonString);
+
+			let getmarketsummaries = JSON.parse(jsonString);
+			$('#status').html("pullJson.php Successfully Queried API<br>" +
+				"request: " + getmarketsummaries.request);
+			printGetMarketSummaries(getmarketsummaries);
+		}
+	});
+
+	function printGetMarketSummaries(getmarketsummaries) {
+		console.log(getmarketsummaries);
+	}
+});
