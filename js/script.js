@@ -11,10 +11,10 @@ $('#orderbook').click(function() {
 		},
 		success: function (JsonString) {
 			let orderbook = JSON.parse(JsonString);
-			printOrderBook(orderbook);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + orderbook.request +
 				"  for  [ marketID:  " + market + " ]");
+			printOrderBook(orderbook);
 		}
 	});
 
@@ -72,44 +72,10 @@ $('#getmarkets').click(function() {
 			let getmarkets = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getmarkets.request);
-			printGetMarkets(getmarkets);
+			printTable(getmarkets.result);
 		}
 	});
 
-	function printGetMarkets(json) {
-		// print table headers
-		console.log(json)
-		let html =
-			"<table>" +
-				"<thead>" +
-					"<tr>";
-
-		let properties = Object.keys(json.result[0])
-		properties.forEach(function (header) {
-			html += "<th class='flex-item'>" + header + "</th>";
-		});
-
-		html +=
-					"</tr>" +
-				"</thead>" +
-				"<tbody>";
-
-		// each Result
-		json.result.forEach(function(result) {
-			html += "<tr>";
-
-			// each property of individual Result
-			properties.forEach(function (property) {
-				html += "<td class='flex-item'>" +
-				result[property] + "</td>";
-			});
-
-			html += "</tr>";
-		});
-
-		// apply generated table string to DOM
-		$('#maintable').html(html + "</tbody></table>");
-	}
 });
 
 $('#getmarketsummaries').click(function () {
@@ -124,54 +90,10 @@ $('#getmarketsummaries').click(function () {
 			let getmarketsummaries = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getmarketsummaries.request);
-			printGetMarketSummaries(getmarketsummaries);
+			printTable(getmarketsummaries.result);
 		}
 	});
 
-	function printGetMarketSummaries(json) {
-		// print table headers
-		let html =
-			"<table>" +
-				"<thead>" +
-					"<tr>" +
-						"<th class='flex-item'>AskPrice</th>" +
-						"<th class='flex-item'>BTCVolume</th>" +
-						"<th class='flex-item'>BidPrice</th>" +
-						"<th class='flex-item'>BuyOrderCount</th>" +
-						"<th class='flex-item'>Change</th>" +
-						"<th class='flex-item'>HighPrice</th>" +
-						"<th class='flex-item'>LastPrice</th>" +
-						"<th class='flex-item'>LowPrice</th>" +
-						"<th class='flex-item'>MarketID</th>" +
-						"<th class='flex-item'>SellOrderCount</th>" +
-						"<th class='flex-item'>TradeCount</th>" +
-						"<th class='flex-item'>Volume</th>" +
-					"</tr>" +
-				"</thead>" +
-				"<tbody>";
-
-		// fill table
-		$.each(json.result, function(index, result) {
-			html +=
-				"<tr>" +
-					"<td class='flex-item'>" + result.AskPrice +
-					"<td class='flex-item'>" + result.BTCVolume +
-					"<td class='flex-item'>" + result.BidPrice +
-					"<td class='flex-item'>" + result.BuyOrderCount +
-					"<td class='flex-item'>" + result.Change +
-					"<td class='flex-item'>" + result.HighPrice +
-					"<td class='flex-item'>" + result.LastPrice +
-					"<td class='flex-item'>" + result.LowPrice +
-					"<td class='flex-item' onclick='getMarketByID(" + result.MarketID + ")'>" + result.MarketID +
-					"<td class='flex-item'>" + result.SellOrderCount +
-					"<td class='flex-item'>" + result.TradeCount +
-					"<td class='flex-item'>" + result.Volume +
-				"</tr>";
-		});
-
-		// apply generated table string to DOM
-		$('#maintable').html(html + "</tbody></table>");
-	}
 });
 
 $('#getcurrencies').click(function () {
@@ -186,40 +108,10 @@ $('#getcurrencies').click(function () {
 			let getcurrencies = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getcurrencies.request);
-			printGetCurrencies(getcurrencies);
+			printTable(getcurrencies.result);
 		}
 	});
 
-	function printGetCurrencies(json) {
-		// print table headers
-		let html =
-			"<table>" +
-				"<thead>" +
-					"<tr>" +
-						"<th class='flex-item'>CurrencyID</th>" +
-						"<th class='flex-item'>Name</th>" +
-						"<th class='flex-item'>TickerCode</th>" +
-						"<th class='flex-item'>WalletStatus</th>" +
-						"<th class='flex-item'>Type</th>" +
-					"</tr>" +
-				"</thead>" +
-				"<tbody>";
-
-		// fill table
-		$.each(json.result, function(index, result) {
-			html +=
-				"<tr>" +
-					"<td class='flex-item'>" + result.CurrencyID +
-					"<td class='flex-item'>" + result.Name +
-					"<td class='flex-item'>" + result.TickerCode +
-					"<td class='flex-item'>" + result.WalletStatus +
-					"<td class='flex-item'>" + result.Type +
-				"</tr>";
-		});
-
-		// apply generated table string to DOM
-		$('#maintable').html(html + "</tbody></table>");
-	}
 });
 
 $('#getcurrency').click(function () {
@@ -235,38 +127,10 @@ $('#getcurrency').click(function () {
 			let getcurrencies = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getcurrencies.request + "  [" + ticker + "]");
-			printGetCurrencies(getcurrencies);
+			printTable([getcurrencies.result]);
 		}
 	});
 
-	function printGetCurrencies(json) {
-		// print table headers
-		let html =
-			"<table>" +
-				"<thead>" +
-					"<tr>" +
-						"<th class='flex-item'>CurrencyID</th>" +
-						"<th class='flex-item'>Name</th>" +
-						"<th class='flex-item'>TickerCode</th>" +
-						"<th class='flex-item'>WalletStatus</th>" +
-						"<th class='flex-item'>Type</th>" +
-					"</tr>" +
-				"</thead>" +
-				"<tbody>";
-
-		// fill table
-		html +=
-			"<tr>" +
-				"<td class='flex-item'>" + json.result.CurrencyID +
-				"<td class='flex-item'>" + json.result.Name +
-				"<td class='flex-item'>" + json.result.TickerCode +
-				"<td class='flex-item'>" + json.result.WalletStatus +
-				"<td class='flex-item'>" + json.result.Type +
-			"</tr>";
-
-		// apply generated table string to DOM
-		$('#maintable').html(html + "</tbody></table>");
-	}
 });
 
 function getMarketByID(MarketID) {
@@ -279,54 +143,45 @@ function getMarketByID(MarketID) {
 			endpoint: endpoint
 		},
 		success: function (jsonString) {
-			let getmarketsummaries = JSON.parse(jsonString);
+			let getmarketsummary = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getmarketsummaries.request);
-			printGetMarketSummaries(getmarketsummaries);
+			printTable([getmarketsummary.result]);
 		}
 	});
 
-	function printGetMarketSummaries(json) {
-		console.log(json)
-		// print table headers
-		let html =
-			"<table>" +
-				"<thead>" +
-					"<tr>" +
-						"<th class='flex-item'>AskPrice</th>" +
-						"<th class='flex-item'>BTCVolume</th>" +
-						"<th class='flex-item'>BidPrice</th>" +
-						"<th class='flex-item'>BuyOrderCount</th>" +
-						"<th class='flex-item'>Change</th>" +
-						"<th class='flex-item'>HighPrice</th>" +
-						"<th class='flex-item'>LastPrice</th>" +
-						"<th class='flex-item'>LowPrice</th>" +
-						"<th class='flex-item'>MarketID</th>" +
-						"<th class='flex-item'>SellOrderCount</th>" +
-						"<th class='flex-item'>TradeCount</th>" +
-						"<th class='flex-item'>Volume</th>" +
-					"</tr>" +
-				"</thead>" +
-				"<tbody>";
+}
 
-		// fill table
-		html +=
-			"<tr>" +
-				"<td class='flex-item'>" + json.result.AskPrice +
-				"<td class='flex-item'>" + json.result.BTCVolume +
-				"<td class='flex-item'>" + json.result.BidPrice +
-				"<td class='flex-item'>" + json.result.BuyOrderCount +
-				"<td class='flex-item'>" + json.result.Change +
-				"<td class='flex-item'>" + json.result.HighPrice +
-				"<td class='flex-item'>" + json.result.LastPrice +
-				"<td class='flex-item'>" + json.result.LowPrice +
-				"<td class='flex-item' onclick='getMarketByID(" + json.result.MarketID + ")'>" + json.result.MarketID +
-				"<td class='flex-item'>" + json.result.SellOrderCount +
-				"<td class='flex-item'>" + json.result.TradeCount +
-				"<td class='flex-item'>" + json.result.Volume +
-			"</tr>";
+function printTable(results) {
+	// print table headers
+	let html =
+		"<table>" +
+			"<thead>" +
+				"<tr>";
 
-		// apply generated table string to DOM
-		$('#maintable').html(html + "</tbody></table>");
-	}
+	let properties = Object.keys(results[0])
+	properties.forEach(function (header) {
+		html += "<th class='flex-item'>" + header + "</th>";
+	});
+
+	html +=
+				"</tr>" +
+			"</thead>" +
+			"<tbody>";
+
+	// each Result
+	results.forEach(function(result) {
+		html += "<tr>";
+
+		// each property of individual Result
+		properties.forEach(function (property) {
+			html += "<td class='flex-item'>" +
+				result[property] + "</td>";
+		});
+
+		html += "</tr>";
+	});
+
+	// apply generated table string to DOM
+	$('#maintable').html(html + "</tbody></table>");
 }
