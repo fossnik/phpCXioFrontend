@@ -107,7 +107,7 @@ $('#getmarkets').click(function() {
 					"<td class='flex-item'>" + result.MarketAssetID +
 					"<td class='flex-item'>" + result.MarketAssetName +
 					"<td class='flex-item'>" + result.MarketAssetType +
-					"<td class='flex-item'>" + result.MarketID +
+					"<td class='flex-item' onclick='getMarketByID(" + result.MarketID + ")'>" + result.MarketID +
 				"</tr>";
 		});
 
@@ -166,7 +166,7 @@ $('#getmarketsummaries').click(function () {
 					"<td class='flex-item'>" + result.HighPrice +
 					"<td class='flex-item'>" + result.LastPrice +
 					"<td class='flex-item'>" + result.LowPrice +
-					"<td class='flex-item'>" + result.MarketID +
+					"<td class='flex-item' onclick='getMarketByID(" + result.MarketID + ")'>" + result.MarketID +
 					"<td class='flex-item'>" + result.SellOrderCount +
 					"<td class='flex-item'>" + result.TradeCount +
 					"<td class='flex-item'>" + result.Volume +
@@ -272,3 +272,65 @@ $('#getcurrency').click(function () {
 		$('#maintable').html(html + "</tbody></table>");
 	}
 });
+
+function getMarketByID(MarketID) {
+	let endpoint = "getmarketsummary?market_id=" + MarketID;
+
+	$.ajax({
+		type: 'POST',
+		url: 'php/pullJson.php',
+		data: {
+			endpoint: endpoint
+		},
+		success: function (jsonString) {
+			let getmarketsummaries = JSON.parse(jsonString);
+			$('#status').html("pullJson.php Successfully Queried API<br>" +
+				"request: " + getmarketsummaries.request);
+			printGetMarketSummaries(getmarketsummaries);
+		}
+	});
+
+	function printGetMarketSummaries(json) {
+		console.log(json)
+		// print table headers
+		let html =
+			"<table>" +
+				"<thead>" +
+					"<tr>" +
+						"<th class='flex-item'>AskPrice</th>" +
+						"<th class='flex-item'>BTCVolume</th>" +
+						"<th class='flex-item'>BidPrice</th>" +
+						"<th class='flex-item'>BuyOrderCount</th>" +
+						"<th class='flex-item'>Change</th>" +
+						"<th class='flex-item'>HighPrice</th>" +
+						"<th class='flex-item'>LastPrice</th>" +
+						"<th class='flex-item'>LowPrice</th>" +
+						"<th class='flex-item'>MarketID</th>" +
+						"<th class='flex-item'>SellOrderCount</th>" +
+						"<th class='flex-item'>TradeCount</th>" +
+						"<th class='flex-item'>Volume</th>" +
+					"</tr>" +
+				"</thead>" +
+				"<tbody>";
+
+		// fill table
+		html +=
+			"<tr>" +
+				"<td class='flex-item'>" + json.result.AskPrice +
+				"<td class='flex-item'>" + json.result.BTCVolume +
+				"<td class='flex-item'>" + json.result.BidPrice +
+				"<td class='flex-item'>" + json.result.BuyOrderCount +
+				"<td class='flex-item'>" + json.result.Change +
+				"<td class='flex-item'>" + json.result.HighPrice +
+				"<td class='flex-item'>" + json.result.LastPrice +
+				"<td class='flex-item'>" + json.result.LowPrice +
+				"<td class='flex-item' onclick='getMarketByID(" + json.result.MarketID + ")'>" + json.result.MarketID +
+				"<td class='flex-item'>" + json.result.SellOrderCount +
+				"<td class='flex-item'>" + json.result.TradeCount +
+				"<td class='flex-item'>" + json.result.Volume +
+			"</tr>";
+
+		// apply generated table string to DOM
+		$('#maintable').html(html + "</tbody></table>");
+	}
+}
