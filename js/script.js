@@ -71,7 +71,7 @@ $('#getmarkets').click(function() {
 		}
 	});
 
-	function printGetMarkets(getmarkets) {
+	function printGetMarkets(json) {
 		// print table headers
 		$('#JS-fill').html(
 			"<tr>" +
@@ -88,18 +88,18 @@ $('#getmarkets').click(function() {
 		);
 
 		// fill table
-		$.each(getmarkets.result, function(index, market) {
+		$.each(json.result, function(index, result) {
 			$('#JS-fill').append(
 				"<tr>" +
-					"<td class='flex-item'>" + market.Active +
-					"<td class='flex-item'>" + market.BaseCurrency +
-					"<td class='flex-item'>" + market.BaseCurrencyCode +
-					"<td class='flex-item'>" + market.BaseCurrencyID +
-					"<td class='flex-item'>" + market.MarketAssetCode +
-					"<td class='flex-item'>" + market.MarketAssetID +
-					"<td class='flex-item'>" + market.MarketAssetName +
-					"<td class='flex-item'>" + market.MarketAssetType +
-					"<td class='flex-item'>" + market.MarketID +
+					"<td class='flex-item'>" + result.Active +
+					"<td class='flex-item'>" + result.BaseCurrency +
+					"<td class='flex-item'>" + result.BaseCurrencyCode +
+					"<td class='flex-item'>" + result.BaseCurrencyID +
+					"<td class='flex-item'>" + result.MarketAssetCode +
+					"<td class='flex-item'>" + result.MarketAssetID +
+					"<td class='flex-item'>" + result.MarketAssetName +
+					"<td class='flex-item'>" + result.MarketAssetType +
+					"<td class='flex-item'>" + result.MarketID +
 				"</tr>"
 			);
 		});
@@ -116,8 +116,6 @@ $('#getmarketsummaries').click(function () {
 			endpoint: 'getmarketsummaries'
 		},
 		success: function (jsonString) {
-			$('#maintable').text(jsonString);
-
 			let getmarketsummaries = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
 				"request: " + getmarketsummaries.request);
@@ -125,7 +123,45 @@ $('#getmarketsummaries').click(function () {
 		}
 	});
 
-	function printGetMarketSummaries(getmarketsummaries) {
-		console.log(getmarketsummaries);
+	function printGetMarketSummaries(json) {
+		console.log(json);
+
+		// print table headers
+		$('#JS-fill').html(
+			"<tr>" +
+				"<th class='flex-item'>AskPrice</th>" +
+				"<th class='flex-item'>BTCVolume</th>" +
+				"<th class='flex-item'>BidPrice</th>" +
+				"<th class='flex-item'>BuyOrderCount</th>" +
+				"<th class='flex-item'>Change</th>" +
+				"<th class='flex-item'>HighPrice</th>" +
+				"<th class='flex-item'>LastPrice</th>" +
+				"<th class='flex-item'>LowPrice</th>" +
+				"<th class='flex-item'>MarketID</th>" +
+				"<th class='flex-item'>SellOrderCount</th>" +
+				"<th class='flex-item'>TradeCount</th>" +
+				"<th class='flex-item'>Volume</th>" +
+			"</tr>"
+		);
+
+		// fill table
+		$.each(json.result, function(index, result) {
+			$('#JS-fill').append(
+				"<tr>" +
+					"<td class='flex-item'>" + result.AskPrice +
+					"<td class='flex-item'>" + result.BTCVolume +
+					"<td class='flex-item'>" + result.BidPrice +
+					"<td class='flex-item'>" + result.BuyOrderCount +
+					"<td class='flex-item'>" + result.Change +
+					"<td class='flex-item'>" + result.HighPrice +
+					"<td class='flex-item'>" + result.LastPrice +
+					"<td class='flex-item'>" + result.LowPrice +
+					"<td class='flex-item'>" + result.MarketID +
+					"<td class='flex-item'>" + result.SellOrderCount +
+					"<td class='flex-item'>" + result.TradeCount +
+					"<td class='flex-item'>" + result.Volume +
+				"</tr>"
+			);
+		});
 	}
 });
