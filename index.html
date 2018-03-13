@@ -8,7 +8,7 @@
 	</head>
 
 	<body>
-		<h1>Order Book</h1>
+		<h1>Coin API Frontend</h1>
 
         <div class="alert">
             <span id="status"></span>
@@ -22,10 +22,12 @@
 			<option value="281">Dash</option>
 		</select>
 
-		<button type="button" class="button" id="pull">Pull Orderbook<br>(PHP)</button>
-		<button type="button" class="button" id="print">Print Orderbook<br>(JavaScript)</button>
+		<button type="button" class="button" id="orderbook">Orderbook</button>
+		<p></p>
+		<button type="button" class="button" id="getmarkets">Get Markets</button>
 
-        <p>
+        <p></p>
+		<div id="log"></div>
 		<table class="flex-container">
 			<tbody id="JS-fill" ></tbody>
 		</table>

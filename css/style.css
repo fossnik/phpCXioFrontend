@@ -3,7 +3,12 @@ body {
 }
 th {
 	font-weight: bold;
+}
+.buy {
 	background-color: lightgreen;
+}
+.sell {
+	background-color: indianred;
 }
 tr {
 	margin: auto;
