@@ -12,7 +12,6 @@ th {
 }
 tr {
 	margin: auto;
-	background-color: black;
 }
 td {
 	font-size: 14px;
@@ -30,7 +29,7 @@ td {
 .alert {
     width: 650px;
     margin: auto;
-    height: 40px;
+    height: 70px;
     background-color: ghostwhite;
     margin-bottom: 15px;
     position: relative;
