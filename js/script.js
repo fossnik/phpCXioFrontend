@@ -1,12 +1,6 @@
 // pull JSON from API on button click
 
-$('#orderbook').click(getOrderBook());
-$('#getmarkets').click(getMarkets());
-$('#getmarketsummaries').click(getMarketSummaries());
-$('#getcurrencies').click(getCurrencies());
-$('#getcurrency').click(getCurrency());
-
-function getOrderBook() {
+$('#orderbook').click(function() {
 	let market = document.getElementById("market").value;
 
 	$.ajax({
@@ -64,9 +58,9 @@ function getOrderBook() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-}
+});
 
-function getMarkets() {
+$('#getmarkets').click(function() {
 
 	$.ajax({
 		type: 'POST',
@@ -84,45 +78,41 @@ function getMarkets() {
 
 	function printGetMarkets(json) {
 		// print table headers
+		console.log(json)
 		let html =
 			"<table>" +
 				"<thead>" +
-					"<tr>" +
-						"<th class='flex-item'>Active</th>" +
-						"<th class='flex-item'>BaseCurrency</th>" +
-						"<th class='flex-item'>BaseCurrencyCode</th>" +
-						"<th class='flex-item'>BaseCurrencyID</th>" +
-						"<th class='flex-item'>MarketAssetCode</th>" +
-						"<th class='flex-item'>MarketAssetID</th>" +
-						"<th class='flex-item'>MarketAssetName</th>" +
-						"<th class='flex-item'>MarketAssetType</th>" +
-						"<th class='flex-item'>MarketID</th>" +
+					"<tr>";
+
+		let properties = Object.keys(json.result[0])
+		properties.forEach(function (header) {
+			html += "<th class='flex-item'>" + header + "</th>";
+		});
+
+		html +=
 					"</tr>" +
 				"</thead>" +
 				"<tbody>";
 
-		// fill table
-		$.each(json.result, function(index, result) {
-			html +=
-				"<tr>" +
-					"<td class='flex-item'>" + result.Active +
-					"<td class='flex-item'>" + result.BaseCurrency +
-					"<td class='flex-item'>" + result.BaseCurrencyCode +
-					"<td class='flex-item'>" + result.BaseCurrencyID +
-					"<td class='flex-item'>" + result.MarketAssetCode +
-					"<td class='flex-item'>" + result.MarketAssetID +
-					"<td class='flex-item'>" + result.MarketAssetName +
-					"<td class='flex-item'>" + result.MarketAssetType +
-					"<td class='flex-item' onclick='getMarketByID(" + result.MarketID + ")'>" + result.MarketID +
-				"</tr>";
+		// each Result
+		json.result.forEach(function(result) {
+			html += "<tr>";
+
+			// each property of individual Result
+			properties.forEach(function (property) {
+				html += "<td class='flex-item'>" +
+				result[property] + "</td>";
+			});
+
+			html += "</tr>";
 		});
 
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-}
+});
 
-function getMarketSummaries() {
+$('#getmarketsummaries').click(function () {
 
 	$.ajax({
 		type: 'POST',
@@ -182,9 +172,9 @@ function getMarketSummaries() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-}
+});
 
-function getCurrencies() {
+$('#getcurrencies').click(function () {
 
 	$.ajax({
 		type: 'POST',
@@ -230,9 +220,9 @@ function getCurrencies() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-}
+});
 
-function getCurrency() {
+$('#getcurrency').click(function () {
 	let ticker = $('option:selected').data().name;
 
 	$.ajax({
@@ -277,7 +267,7 @@ function getCurrency() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-}
+});
 
 function getMarketByID(MarketID) {
 	let endpoint = "getmarketsummary?market_id=" + MarketID;
