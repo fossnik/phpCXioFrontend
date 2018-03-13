@@ -55,7 +55,7 @@ $('#orderbook').click(function() {
 				"</tr>";
 		});
 
-		// print table end
+		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
 });
@@ -111,11 +111,10 @@ $('#getmarkets').click(function() {
 				"</tr>";
 		});
 
-		// print table end
+		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
 });
-
 
 $('#getmarketsummaries').click(function () {
 
@@ -174,7 +173,55 @@ $('#getmarketsummaries').click(function () {
 				"</tr>";
 		});
 
-		// print table end
+		// apply generated table string to DOM
+		$('#maintable').html(html + "</tbody></table>");
+	}
+});
+
+$('#getcurrencies').click(function () {
+
+	$.ajax({
+		type: 'POST',
+		url: 'php/pullJson.php',
+		data: {
+			endpoint: 'getcurrencies'
+		},
+		success: function (jsonString) {
+			let getcurrencies = JSON.parse(jsonString);
+			$('#status').html("pullJson.php Successfully Queried API<br>" +
+				"request: " + getcurrencies.request);
+			printGetCurrencies(getcurrencies);
+		}
+	});
+
+	function printGetCurrencies(json) {
+		// print table headers
+		let html =
+			"<table>" +
+				"<thead>" +
+					"<tr>" +
+						"<th class='flex-item'>CurrencyID</th>" +
+						"<th class='flex-item'>Name</th>" +
+						"<th class='flex-item'>TickerCode</th>" +
+						"<th class='flex-item'>WalletStatus</th>" +
+						"<th class='flex-item'>Type</th>" +
+					"</tr>" +
+				"</thead>" +
+				"<tbody>";
+
+		// fill table
+		$.each(json.result, function(index, result) {
+			html +=
+				"<tr>" +
+					"<td class='flex-item'>" + result.CurrencyID +
+					"<td class='flex-item'>" + result.Name +
+					"<td class='flex-item'>" + result.TickerCode +
+					"<td class='flex-item'>" + result.WalletStatus +
+					"<td class='flex-item'>" + result.Type +
+				"</tr>";
+		});
+
+		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
 });

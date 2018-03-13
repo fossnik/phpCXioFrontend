@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0947d6d6-fbb3-40aa-90c9-0c88a503691d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
@@ -19,17 +18,17 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+            <state relative-caret-position="345">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="148" column="61" selection-start-line="148" selection-start-column="61" selection-end-line="148" selection-end-column="61" />
+            <state relative-caret-position="843">
+              <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            <state relative-caret-position="345">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -61,6 +60,7 @@
       <find>&lt;/th&gt;</find>
       <find>market.</find>
       <find>$('#maintable').append(</find>
+      <find>/ print table end</find>
     </findStrings>
     <replaceStrings>
       <replace>$url</replace>
@@ -68,6 +68,7 @@
       <replace>&lt;/td&gt;</replace>
       <replace>result.</replace>
       <replace>html +=</replace>
+      <replace>/ apply generated table string to DOM</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -77,9 +78,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/php/pullJson.php" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/script.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -214,7 +215,7 @@
       <workItem from="1520788803389" duration="19060000" />
       <workItem from="1520884510528" duration="258000" />
       <workItem from="1520905219580" duration="6000000" />
-      <workItem from="1520961611357" duration="4942000" />
+      <workItem from="1520961611357" duration="7175000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented GetMarkets Endpoint Query">
       <created>1520908164668</created>
@@ -258,11 +259,25 @@
       <option name="project" value="LOCAL" />
       <updated>1520964299955</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Corrected Error causing &lt;/table&gt; terminator tag to appear before row data.">
+      <created>1520966614910</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1520966614910</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implemented Style Improvements to Table">
+      <created>1520968392111</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1520968392111</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31106000" />
+    <option name="totallyTimeSpent" value="33339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1052" extended-state="0" />
@@ -337,7 +352,9 @@
     <MESSAGE value="Implemented GetMarkets Table" />
     <MESSAGE value="Implemented GetMarketSummaries Endpoint" />
     <MESSAGE value="Implemented GetMarketSummaries Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented GetMarketSummaries Table" />
+    <MESSAGE value="Corrected Error causing &lt;/table&gt; terminator tag to appear before row data." />
+    <MESSAGE value="Implemented Style Improvements to Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Style Improvements to Table" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -447,24 +464,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="148" column="61" selection-start-line="148" selection-start-column="61" selection-end-line="148" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        <state relative-caret-position="843">
+          <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
         </state>
       </provider>
     </entry>
