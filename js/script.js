@@ -1,6 +1,12 @@
 // pull JSON from API on button click
 
-$('#orderbook').click(function() {
+$('#orderbook').click(getOrderBook());
+$('#getmarkets').click(getMarkets());
+$('#getmarketsummaries').click(getMarketSummaries());
+$('#getcurrencies').click(getCurrencies());
+$('#getcurrency').click(getCurrency());
+
+function getOrderBook() {
 	let market = document.getElementById("market").value;
 
 	$.ajax({
@@ -58,9 +64,9 @@ $('#orderbook').click(function() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-});
+}
 
-$('#getmarkets').click(function() {
+function getMarkets() {
 
 	$.ajax({
 		type: 'POST',
@@ -114,9 +120,9 @@ $('#getmarkets').click(function() {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-});
+}
 
-$('#getmarketsummaries').click(function () {
+function getMarketSummaries() {
 
 	$.ajax({
 		type: 'POST',
@@ -176,9 +182,9 @@ $('#getmarketsummaries').click(function () {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-});
+}
 
-$('#getcurrencies').click(function () {
+function getCurrencies() {
 
 	$.ajax({
 		type: 'POST',
@@ -224,9 +230,9 @@ $('#getcurrencies').click(function () {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-});
+}
 
-$('#getcurrency').click(function () {
+function getCurrency() {
 	let ticker = $('option:selected').data().name;
 
 	$.ajax({
@@ -271,7 +277,7 @@ $('#getcurrency').click(function () {
 		// apply generated table string to DOM
 		$('#maintable').html(html + "</tbody></table>");
 	}
-});
+}
 
 function getMarketByID(MarketID) {
 	let endpoint = "getmarketsummary?market_id=" + MarketID;
