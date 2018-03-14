@@ -14,25 +14,26 @@
             <span id="status"></span>
         </div>
 
-		<button type="button" class="button" id="getmarkets">Markets</button>
-		<p></p>
-		<button type="button" class="button" id="getmarketsummaries">Market Summaries</button>
-		<p></p>
-		<button type="button" class="button" id="getcurrencies">Currencies</button>
-		<p></p>
+		<div>
+			<button type="button" class="button" id="getmarkets">Markets</button>
+			<button type="button" class="button" id="getmarketsummaries">Market Summaries</button>
+			<button type="button" class="button" id="getcurrencies">Currencies</button>
+		</div>
 
-		<select id="market">
-			<option value="18" data-name="LTC">Litecoin</option>
-			<option value="21" data-name="DOGE">Dogecoin</option>
-			<option value="87" data-name="ETH">Ethereum</option>
-			<option value="88" data-name="ETC">Ethereum Classic</option>
-			<option value="281" data-name="DASH">Dash</option>
-		</select>
-		<button type="button" class="button" id="orderbook">Orderbook</button>
-		<button type="button" class="button" id="getcurrency">Currency</button>
+		<div>
+			<select id="market">
+				<option value="18" data-name="LTC">Litecoin</option>
+				<option value="21" data-name="DOGE">Dogecoin</option>
+				<option value="87" data-name="ETH">Ethereum</option>
+				<option value="88" data-name="ETC">Ethereum Classic</option>
+				<option value="281" data-name="DASH">Dash</option>
+			</select>
+			<button type="button" class="button" id="orderbook">Orderbook</button>
+			<button type="button" class="button" id="getcurrency">Currency</button>
+		</div>
 
         <hr>
-		<div class="flex-container" id="maintable"></div>
+		<div id="maintable"></div>
 
 		<footer>
 			<script src="js/script.js"></script>
