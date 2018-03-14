@@ -11,8 +11,7 @@ $('#orderbook').click(function() {
 		},
 		success: function (JsonString) {
 			let orderbook = JSON.parse(JsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + orderbook.request +
+			$('#status').html("request: " + orderbook.request +
 				"  for  [ marketID:  " + market + " ]");
 			printOrderBook(orderbook);
 		}
@@ -70,8 +69,7 @@ $('#getmarkets').click(function() {
 		},
 		success: function (jsonString) {
 			let getmarkets = JSON.parse(jsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getmarkets.request);
+			$('#status').html("request: " + getmarkets.request);
 			printTable(getmarkets.result);
 		}
 	});
@@ -88,8 +86,7 @@ $('#getmarketsummaries').click(function () {
 		},
 		success: function (jsonString) {
 			let getmarketsummaries = JSON.parse(jsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getmarketsummaries.request);
+			$('#status').html("request: " + getmarketsummaries.request);
 			printTable(getmarketsummaries.result);
 		}
 	});
@@ -106,8 +103,7 @@ $('#getcurrencies').click(function () {
 		},
 		success: function (jsonString) {
 			let getcurrencies = JSON.parse(jsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getcurrencies.request);
+			$('#status').html("request: " + getcurrencies.request);
 			printTable(getcurrencies.result);
 		}
 	});
@@ -125,8 +121,7 @@ $('#getcurrency').click(function () {
 		},
 		success: function (jsonString) {
 			let getcurrencies = JSON.parse(jsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getcurrencies.request + "  [" + ticker + "]");
+			$('#status').html("request: " + getcurrencies.request + "  [" + ticker + "]");
 			printTable([getcurrencies.result]);
 		}
 	});
@@ -144,8 +139,7 @@ function getMarketByID(MarketID) {
 		},
 		success: function (jsonString) {
 			let getmarketsummary = JSON.parse(jsonString);
-			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getmarketsummary.request);
+			$('#status').html("request: " + getmarketsummary.request);
 			printTable([getmarketsummary.result]);
 		}
 	});
@@ -169,11 +163,11 @@ function printTable(results) {
 			"</thead>" +
 			"<tbody>";
 
-	// each Result
+	// append a table row for each Result
 	results.forEach(function(result) {
 		html += "<tr>";
 
-		// each property of individual Result
+		// table data for each property of individual Result
 		properties.forEach(function (property) {
 			if (property === "MarketID")
 				html += "<td class='flex-item' onclick='getMarketByID(" +

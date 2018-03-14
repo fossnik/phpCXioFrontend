@@ -26,8 +26,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+            <state relative-caret-position="558">
+              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
             </state>
           </provider>
         </entry>
@@ -74,6 +74,7 @@
       <replace>html +=</replace>
       <replace>/ apply generated table string to DOM</replace>
       <replace>&quot;&lt;td class='flex-item' onclick='getMarketByID('+result.marketID+')'&gt;' + result.MarketID +</replace>
+      <replace>&quot;request: &quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -96,9 +97,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="683" />
-    <option name="width" value="683" />
-    <option name="height" value="740" />
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -220,7 +221,7 @@
       <workItem from="1520788803389" duration="19060000" />
       <workItem from="1520884510528" duration="258000" />
       <workItem from="1520905219580" duration="6000000" />
-      <workItem from="1520961611357" duration="21502000" />
+      <workItem from="1520961611357" duration="22660000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented GetMarkets Endpoint Query">
       <created>1520908164668</created>
@@ -327,14 +328,28 @@
       <option name="project" value="LOCAL" />
       <updated>1520985358529</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implemented a GetMarketByID onclick Trigger">
+      <created>1520986378605</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1520986378605</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implemented a GetMarketByID onclick Trigger">
+      <created>1520986564100</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1520986564100</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47666000" />
+    <option name="totallyTimeSpent" value="48824000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="683" y="0" width="683" height="740" extended-state="4" />
+    <frame x="960" y="0" width="960" height="1052" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -349,7 +364,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15712188" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11169102" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Learn" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -415,7 +430,8 @@
     <MESSAGE value="Aggregated jQuery Click Event Triggers" />
     <MESSAGE value="Generified the printGetMarkets Method based on Keys" />
     <MESSAGE value="Abstracted the Table Building methods of GetMarketSummaries and Currencies to the Generified PrintTable Method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstracted the Table Building methods of GetMarketSummaries and Currencies to the Generified PrintTable Method" />
+    <MESSAGE value="Implemented a GetMarketByID onclick Trigger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented a GetMarketByID onclick Trigger" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -541,8 +557,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+        <state relative-caret-position="558">
+          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
         </state>
       </provider>
     </entry>
