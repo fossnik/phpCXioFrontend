@@ -145,7 +145,7 @@ function getMarketByID(MarketID) {
 		success: function (jsonString) {
 			let getmarketsummary = JSON.parse(jsonString);
 			$('#status').html("pullJson.php Successfully Queried API<br>" +
-				"request: " + getmarketsummaries.request);
+				"request: " + getmarketsummary.request);
 			printTable([getmarketsummary.result]);
 		}
 	});
@@ -175,8 +175,13 @@ function printTable(results) {
 
 		// each property of individual Result
 		properties.forEach(function (property) {
-			html += "<td class='flex-item'>" +
-				result[property] + "</td>";
+			if (property === "MarketID")
+				html += "<td class='flex-item' onclick='getMarketByID(" +
+					result[property] + ")'>" +
+					result[property] + "</td>";
+			else
+				html += "<td class='flex-item'>" +
+					result[property] + "</td>";
 		});
 
 		html += "</tr>";
