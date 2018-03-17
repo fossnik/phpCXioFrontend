@@ -11,6 +11,12 @@ thead {
 	font-weight: bold;
 	background-color: sandybrown;
 }
+thead .buy {
+	background-color: lightgreen;
+}
+thead .sell {
+	background-color: indianred;
+}
 tbody {
 	font-size: small;
 	font-family: monospace;
@@ -25,12 +31,6 @@ button {
 #maintable {
 	display: flex;
 	flex-direction: column;
-}
-.buy {
-	background-color: lightgreen;
-}
-.sell {
-	background-color: indianred;
 }
 .alert {
 	width: 650px;
